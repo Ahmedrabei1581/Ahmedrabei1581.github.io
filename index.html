@@ -31,31 +31,6 @@
 			height: 3.5em;
 		}
 
-		/* Projects Backgrounds */
-		.project-card-bg {
-			background-size: cover;
-			background-position: center;
-			background-repeat: no-repeat;
-			position: relative;
-		}
-
-		.project-card-bg::before {
-			content: "";
-			position: absolute;
-			top: 0;
-			left: 0;
-			width: 100%;
-			height: 100%;
-			background: rgba(14, 20, 35, 0.85);
-			/* Dark overlay for readability */
-			border-radius: 16px;
-		}
-
-		.project-card-bg>* {
-			position: relative;
-			z-index: 1;
-		}
-
 		.brand-identity-bar {
 			position: fixed;
 			top: 3.5em;
@@ -715,12 +690,13 @@
 				</header>
 				<div class="row">
 					<div class="col-6 col-12-medium">
-						<div class="cyber-banking-card project-card-bg"
-							style="background-image: url('Portuguese Bank Crisis Analysis.png');">
+						<div class="cyber-banking-card">
 							<span class="badge">Project 01: Portuguese Bank Crisis Analysis</span>
 							<div class="link-preview-box">
-								<span class="icon solid major fa-chart-line"
-									style="color: #00a2ff; font-size: 2.2em; margin-bottom: 10px;"></span>
+								<a href="Portuguese Bank Crisis Analysis.png" target="_blank">
+									<img src="Portuguese Bank Crisis Analysis.png" alt="Project 01"
+										style="width: 100%; height: auto; border-radius: 8px; margin-bottom: 10px;">
+								</a>
 								<h4>الخوارزمية: Polynomial & Linear Regression</h4>
 							</div>
 							<p style="text-align: justify; direction: ltr; font-size: 0.9em; min-height: 160px;">
@@ -737,12 +713,13 @@
 						</div>
 					</div>
 					<div class="col-6 col-12-medium">
-						<div class="cyber-banking-card project-card-bg"
-							style="background-image: url('Credit Risk & Loan Approval Engine.png');">
+						<div class="cyber-banking-card">
 							<span class="badge">Project 02: Credit Risk & Loan Approval Engine</span>
 							<div class="link-preview-box">
-								<span class="icon solid major fa-shield-alt"
-									style="color: #00a2ff; font-size: 2.2em; margin-bottom: 10px;"></span>
+								<a href="Credit Risk & Loan Approval Engine.png" target="_blank">
+									<img src="Credit Risk & Loan Approval Engine.png" alt="Project 02"
+										style="width: 100%; height: auto; border-radius: 8px; margin-bottom: 10px;">
+								</a>
 								<h4>الخوارزميات: Gradient Boosting, Random Forest & Logistic Regression</h4>
 							</div>
 							<p style="text-align: justify; direction: ltr; font-size: 0.9em; min-height: 160px;">
@@ -758,12 +735,13 @@
 						</div>
 					</div>
 					<div class="col-6 col-12-medium">
-						<div class="cyber-banking-card project-card-bg"
-							style="background-image: url('Real Estate Valuation Streamlit App.png');">
+						<div class="cyber-banking-card">
 							<span class="badge">Project 03: Real Estate Valuation Streamlit App</span>
 							<div class="link-preview-box">
-								<span class="icon solid major fa-home"
-									style="color: #00a2ff; font-size: 2.2em; margin-bottom: 10px;"></span>
+								<a href="Real Estate Valuation Streamlit App.png" target="_blank">
+									<img src="Real Estate Valuation Streamlit App.png" alt="Project 03"
+										style="width: 100%; height: auto; border-radius: 8px; margin-bottom: 10px;">
+								</a>
 								<h4>المنصة: Interactive Collateral Pricing Deployment</h4>
 							</div>
 							<p style="text-align: justify; direction: ltr; font-size: 0.9em; min-height: 160px;">
@@ -779,12 +757,13 @@
 						</div>
 					</div>
 					<div class="col-6 col-12-medium">
-						<div class="cyber-banking-card project-card-bg"
-							style="background-image: url('Loan Approval Simulation Portal.png');">
+						<div class="cyber-banking-card">
 							<span class="badge">Project 04: Loan Approval Simulation Portal</span>
 							<div class="link-preview-box">
-								<span class="icon solid major fa-sliders-h"
-									style="color: #00a2ff; font-size: 2.2em; margin-bottom: 10px;"></span>
+								<a href="Loan Approval Simulation Portal.png" target="_blank">
+									<img src="Loan Approval Simulation Portal.png" alt="Project 04"
+										style="width: 100%; height: auto; border-radius: 8px; margin-bottom: 10px;">
+								</a>
 								<h4>الواجهة: Interactive Customer Risk Evaluator</h4>
 							</div>
 							<p style="text-align: justify; direction: ltr; font-size: 0.9em; min-height: 160px;">
@@ -799,12 +778,14 @@
 						</div>
 					</div>
 					<div class="col-12">
-						<div class="cyber-banking-card project-card-bg"
-							style="margin-top: 10px; background-image: url('Live Operational Risk & Credit Underwriting Dashboard.png');">
+						<div class="cyber-banking-card" style="margin-top: 10px;">
 							<span class="badge">Project 05: Live Operational Risk & Credit Underwriting Dashboard</span>
 							<div class="link-preview-box">
-								<span class="icon solid major fa-university"
-									style="color: #00a2ff; font-size: 2.5em; margin-bottom: 10px;"></span>
+								<a href="Live Operational Risk & Credit Underwriting Dashboard.png" target="_blank">
+									<img src="Live Operational Risk & Credit Underwriting Dashboard.png"
+										alt="Project 05"
+										style="width: 100%; height: auto; border-radius: 8px; margin-bottom: 10px;">
+								</a>
 								<h4>البيئة: Production-Grade Credit Underwriting Hub</h4>
 							</div>
 							<p style="text-align: justify; direction: ltr; font-size: 0.95em;">
@@ -815,7 +796,7 @@
 							<ul class="actions special">
 								<li><a href="https://loan-approval-prediction-abp4c5jgzbjrfclas7fhcv.streamlit.app/"
 										target="_blank" class="button primary"
-										style="padding: 0 35px; font-size: 0.95em;">Launch
+										style="padding: 0 35px; font-size: 1.1em;">Launch
 										Production Underwriting Dashboard</a></li>
 							</ul>
 						</div>
