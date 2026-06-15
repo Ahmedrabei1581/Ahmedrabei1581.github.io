@@ -14,6 +14,7 @@
 			background: #0a0c14;
 		}
 
+		/* Header and Nav */
 		header#header {
 			background: rgba(10, 12, 20, 0.95) !important;
 			backdrop-filter: blur(10px);
@@ -26,9 +27,44 @@
 			border-bottom: 1px solid rgba(0, 162, 255, 0.15) !important;
 			display: flex;
 			align-items: center;
-			justify-content: flex-end;
+			justify-content: space-between;
+			/* Adjusted for hamburger */
 			padding: 0 2.5em;
 			height: 3.5em;
+		}
+
+		/* Mobile Menu Toggle */
+		.nav-toggle {
+			display: none;
+			cursor: pointer;
+			color: #fff;
+			font-size: 1.5em;
+		}
+
+		@media screen and (max-width: 840px) {
+			.nav-toggle {
+				display: block;
+			}
+
+			#nav {
+				display: none;
+				position: absolute;
+				top: 3.5em;
+				left: 0;
+				width: 100%;
+				background: #0a0c14;
+				flex-direction: column;
+				padding: 1em 0;
+				border-bottom: 2px solid #00a2ff;
+			}
+
+			#nav.active {
+				display: flex;
+			}
+
+			#nav ul {
+				flex-direction: column;
+			}
 		}
 
 		.brand-identity-bar {
@@ -516,6 +552,7 @@
 	<div id="page-wrapper">
 
 		<header id="header">
+			<div class="nav-toggle" id="nav-toggle">☰</div>
 			<nav id="nav">
 				<ul>
 					<li><a href="#about-deployments">The Core Vectors</a></li>
@@ -1098,6 +1135,16 @@
 	<script src="assets/js/breakpoints.min.js"></script>
 	<script src="assets/js/util.js"></script>
 	<script src="assets/js/main.js"></script>
+	<script>
+		$(document).ready(function () {
+			$('#nav-toggle').click(function () {
+				$('#nav').toggleClass('active');
+			});
+			$('#nav a').click(function () {
+				$('#nav').removeClass('active');
+			});
+		});
+	</script>
 
 </body>
 
