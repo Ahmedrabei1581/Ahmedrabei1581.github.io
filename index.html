@@ -1139,7 +1139,7 @@
 
 	</div>
 
-	<script src="assets/js/jquery.min.js"></script>
+	<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 	<script src="assets/js/jquery.scrolly.min.js"></script>
 	<script src="assets/js/jquery.dropotron.min.js"></script>
 	<script src="assets/js/jquery.scrollex.min.js"></script>
@@ -1147,27 +1147,40 @@
 	<script src="assets/js/breakpoints.min.js"></script>
 	<script src="assets/js/util.js"></script>
 	<script src="assets/js/main.js"></script>
+
 	<script>
 		$(document).ready(function () {
-			$('#nav-toggle').click(function () {
-				$('#nav').toggleClass('active');
+			// حماية القائمة من أي أخطاء
+			var $nav = $('#nav');
+			var $toggle = $('#nav-toggle');
+
+			$toggle.on('click', function (e) {
+				e.preventDefault();
+				$nav.toggleClass('active');
 			});
-			$('#nav a').click(function () {
-				$('#nav').removeClass('active');
+
+			$('#nav a').on('click', function () {
+				$nav.removeClass('active');
 			});
-		});
-	</script>
-	<script>
-		window.addEventListener('load', function () {
-			document.body.classList.remove('is-preload');
+
+			// إغلاق القائمة عند الضغط خارجها
+			$(document).on('click', function (e) {
+				if (!$(e.target).closest('#nav, #nav-toggle').length) {
+					$nav.removeClass('active');
+				}
+			});
 		});
 
-		document.addEventListener('DOMContentLoaded', function () {
+		// تحسين تحميل الصفحة وحل مشكلة الـ is-preload
+		window.addEventListener('load', function () {
+			document.body.classList.remove('is-preload');
 			document.body.style.visibility = 'visible';
 		});
 
+		// تأمين إضافي لإظهار الموقع إذا تأخر التحميل
 		setTimeout(function () {
 			document.body.classList.remove('is-preload');
+			document.body.style.visibility = 'visible';
 		}, 3000);
 	</script>
 
