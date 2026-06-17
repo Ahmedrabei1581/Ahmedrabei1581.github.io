@@ -830,11 +830,10 @@
 								LangChain/CrewAI orchestrations.
 							</p>
 							<ul class="actions special">
-								<li><a href="https://www.kaggle.com/code/ahmedrabei1581/portuguese-bank-classification"
+								<li><a href="https://loan-approval-prediction-abp4c5jgzbjrfclas7fhcv.streamlit.app/"
 										target="_blank" class="button primary"
-										style="padding: 0 35px; font-size: 1.1em;">
-										Launch Production
-										Underwriting Dashboard</a></li>
+										style="padding: 0 35px; font-size: 1.1em;">Launch
+										Production Underwriting Dashboard</a></li>
 							</ul>
 						</div>
 					</div>
@@ -1126,43 +1125,31 @@
 		</footer>
 
 	</div>
-
-	<script src="assets/js/jquery.min.js"></script>
-	<script src="assets/js/jquery.scrolly.min.js"></script>
-	<script src="assets/js/jquery.dropotron.min.js"></script>
-	<script src="assets/js/jquery.scrollex.min.js"></script>
-	<script src="assets/js/browser.min.js"></script>
-	<script src="assets/js/breakpoints.min.js"></script>
-	<script src="assets/js/util.js"></script>
-	<script src="assets/js/main.js"></script>
 	<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 
 	<script>
-		// نستخدم (Self-Invoking Function) لعزل كودك عن أي تأثيرات خارجية
-		(function ($) {
-			$(document).ready(function () {
-				// نستخدم محاولة اصطياد الخطأ لضمان استمرار العمل
-				try {
-					var $toggle = $('#nav-toggle');
-					var $nav = $('#nav');
+		$(document).ready(function () {
+			// زر القائمة
+			$('#nav-toggle').on('click', function (e) {
+				e.preventDefault();
+				$('#nav').toggleClass('active');
+			});
 
-					$toggle.on('click', function (e) {
-						e.preventDefault();
-						e.stopPropagation();
-						$nav.toggleClass('active');
-					});
-				} catch (err) {
-					console.log("تجاوزنا خطأ الإضافة الخارجية بنجاح.");
+			// إغلاق القائمة عند الضغط في أي مكان
+			$(document).on('click', function (e) {
+				if (!$(e.target).closest('#nav, #nav-toggle').length) {
+					$('#nav').removeClass('active');
 				}
 			});
-		})(jQuery);
+
+			// إخفاء أي كلمة undefined تظهر بالخطأ
+			$(':contains("undefined")').each(function () {
+				if ($(this).children().length === 0) {
+					$(this).hide();
+				}
+			});
+		});
 	</script>
-
-	<script src="assets/js/jquery.scrolly.min.js"></script>
-	<script src="assets/js/jquery.dropotron.min.js"></script>
-	<script src="assets/js/jquery.scrollex.min.js"></script>
-	<script src="assets/js/main.js"></script>
-
 </body>
 
 </html>
