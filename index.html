@@ -1135,35 +1135,33 @@
 	<script src="assets/js/breakpoints.min.js"></script>
 	<script src="assets/js/util.js"></script>
 	<script src="assets/js/main.js"></script>
+	<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
 	<script>
-		// هذا الكود يعمل بشكل منعزل (Isolated) لضمان عدم تأثره بالأخطاء الخارجية
-		document.addEventListener("DOMContentLoaded", function () {
-			try {
-				var toggle = document.getElementById('nav-toggle');
-				var nav = document.getElementById('nav');
+		// نستخدم (Self-Invoking Function) لعزل كودك عن أي تأثيرات خارجية
+		(function ($) {
+			$(document).ready(function () {
+				// نستخدم محاولة اصطياد الخطأ لضمان استمرار العمل
+				try {
+					var $toggle = $('#nav-toggle');
+					var $nav = $('#nav');
 
-				if (toggle && nav) {
-					toggle.addEventListener('click', function (e) {
+					$toggle.on('click', function (e) {
 						e.preventDefault();
-						e.stopPropagation(); // يمنع تداخل الأوامر مع إضافات المتصفح
-						nav.classList.toggle('active');
+						e.stopPropagation();
+						$nav.toggleClass('active');
 					});
+				} catch (err) {
+					console.log("تجاوزنا خطأ الإضافة الخارجية بنجاح.");
 				}
-			} catch (err) {
-				console.warn("تعذر تشغيل القائمة بسبب تدخل خارجي، ولكن الموقع سيعمل.");
-			}
-		});
-
-		// هذا الجزء يقوم بإخفاء أي كلمة "undefined" تلقائياً إذا ظهرت في أي مكان
-		window.onload = function () {
-			var elements = document.getElementsByTagName('*');
-			for (var i = 0; i < elements.length; i++) {
-				if (elements[i].innerHTML === "undefined") {
-					elements[i].style.display = "none";
-				}
-			}
-		};
+			});
+		})(jQuery);
 	</script>
+
+	<script src="assets/js/jquery.scrolly.min.js"></script>
+	<script src="assets/js/jquery.dropotron.min.js"></script>
+	<script src="assets/js/jquery.scrollex.min.js"></script>
+	<script src="assets/js/main.js"></script>
 
 </body>
 
