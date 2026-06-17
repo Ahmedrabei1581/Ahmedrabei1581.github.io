@@ -1139,7 +1139,8 @@
 
 	</div>
 
-	<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+
 	<script src="assets/js/jquery.scrolly.min.js"></script>
 	<script src="assets/js/jquery.dropotron.min.js"></script>
 	<script src="assets/js/jquery.scrollex.min.js"></script>
@@ -1149,41 +1150,43 @@
 	<script src="assets/js/main.js"></script>
 
 	<script>
-		$(document).ready(function () {
-			// حماية القائمة من أي أخطاء
-			var $nav = $('#nav');
-			var $toggle = $('#nav-toggle');
+		(function ($) {
+			"use strict";
 
-			$toggle.on('click', function (e) {
-				e.preventDefault();
-				$nav.toggleClass('active');
-			});
+			$(document).ready(function () {
+				var $nav = $('#nav');
+				var $toggle = $('#nav-toggle');
 
-			$('#nav a').on('click', function () {
-				$nav.removeClass('active');
-			});
+				if ($toggle.length && $nav.length) {
+					$toggle.on('click', function (e) {
+						e.preventDefault();
+						e.stopPropagation();
+						$nav.toggleClass('active');
+					});
 
-			// إغلاق القائمة عند الضغط خارجها
-			$(document).on('click', function (e) {
-				if (!$(e.target).closest('#nav, #nav-toggle').length) {
-					$nav.removeClass('active');
+					$('#nav a').on('click', function () {
+						$nav.removeClass('active');
+					});
+
+					$(document).on('click', function (e) {
+						if (!$(e.target).closest('#nav, #nav-toggle').length) {
+							$nav.removeClass('active');
+						}
+					});
 				}
 			});
-		});
 
-		// تحسين تحميل الصفحة وحل مشكلة الـ is-preload
-		window.addEventListener('load', function () {
-			document.body.classList.remove('is-preload');
-			document.body.style.visibility = 'visible';
-		});
+			// تأمين ظهور الصفحة
+			$(window).on('load', function () {
+				$('body').removeClass('is-preload').css('visibility', 'visible');
+			});
 
-		// تأمين إضافي لإظهار الموقع إذا تأخر التحميل
-		setTimeout(function () {
-			document.body.classList.remove('is-preload');
-			document.body.style.visibility = 'visible';
-		}, 3000);
+			setTimeout(function () {
+				$('body').removeClass('is-preload').css('visibility', 'visible');
+			}, 3000);
+
+		})(jQuery);
 	</script>
-
 </body>
 
 </html>
