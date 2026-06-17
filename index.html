@@ -1136,7 +1136,7 @@
 	<script src="assets/js/util.js"></script>
 	<script src="assets/js/main.js"></script>
 	<script>
-		// Using an isolated function to prevent external script interference
+		// هذا الكود يعمل بشكل منعزل (Isolated) لضمان عدم تأثره بالأخطاء الخارجية
 		document.addEventListener("DOMContentLoaded", function () {
 			try {
 				var toggle = document.getElementById('nav-toggle');
@@ -1145,21 +1145,21 @@
 				if (toggle && nav) {
 					toggle.addEventListener('click', function (e) {
 						e.preventDefault();
-						e.stopPropagation(); // Prevents clicks from leaking to other scripts
+						e.stopPropagation(); // يمنع تداخل الأوامر مع إضافات المتصفح
 						nav.classList.toggle('active');
 					});
 				}
 			} catch (err) {
-				console.warn("Navigation failed due to external interference.");
+				console.warn("تعذر تشغيل القائمة بسبب تدخل خارجي، ولكن الموقع سيعمل.");
 			}
 		});
 
-		// Automatically hide "undefined" text if it appears due to script crashes
+		// هذا الجزء يقوم بإخفاء أي كلمة "undefined" تلقائياً إذا ظهرت في أي مكان
 		window.onload = function () {
-			var allElements = document.getElementsByTagName('*');
-			for (var i = 0; i < allElements.length; i++) {
-				if (allElements[i].innerHTML === "undefined") {
-					allElements[i].style.display = "none";
+			var elements = document.getElementsByTagName('*');
+			for (var i = 0; i < elements.length; i++) {
+				if (elements[i].innerHTML === "undefined") {
+					elements[i].style.display = "none";
 				}
 			}
 		};
