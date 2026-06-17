@@ -1137,12 +1137,14 @@
 	<script src="assets/js/main.js"></script>
 	<script>
 		$(document).ready(function () {
-			$('#nav-toggle').click(function () {
-				$('#nav').toggleClass('active');
-			});
-			$('#nav a').click(function () {
-				$('#nav').removeClass('active');
-			});
+			try {
+				$('#nav-toggle').on('click', function (e) {
+					e.preventDefault();
+					$('#nav').toggleClass('active');
+				});
+			} catch (err) {
+				console.warn("Navigation script failed due to external conflict, but we are keeping it alive.");
+			}
 		});
 	</script>
 
