@@ -189,7 +189,7 @@
         }
 
         .cyber-banking-card:hover {
-            transform: translateY(-10px);
+            transform: translateY(-5px);
             border-color: #00a2ff;
             box-shadow: 0 20px 45px rgba(0, 162, 255, 0.3), 0 0 15px rgba(0, 122, 204, 0.2);
         }
@@ -556,17 +556,75 @@
             margin-bottom: 5px;
         }
 
+        /* Direct Embedded Streamlit Container Styling */
+        .embedded-app-wrapper {
+            position: relative;
+            width: 100%;
+            border-radius: 14px;
+            border: 2px solid rgba(0, 162, 255, 0.5);
+            background: #0e1423;
+            box-shadow: 0 15px 45px rgba(0, 0, 0, 0.7), 0 0 25px rgba(0, 162, 255, 0.2);
+            overflow: hidden;
+            margin-top: 25px;
+            margin-bottom: 25px;
+        }
+
+        .embedded-app-header {
+            background: linear-gradient(90deg, #0a0c14 0%, #172442 100%);
+            padding: 12px 20px;
+            border-bottom: 1px solid rgba(0, 162, 255, 0.3);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .embedded-app-title {
+            font-family: "Courier New", Courier, monospace;
+            color: #00e5ff;
+            font-weight: bold;
+            font-size: 0.95em;
+            letter-spacing: 1px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .security-lock-badge {
+            background: rgba(40, 167, 69, 0.2);
+            border: 1px solid #28a745;
+            color: #28a745;
+            padding: 3px 10px;
+            border-radius: 4px;
+            font-size: 0.75em;
+            font-weight: bold;
+            letter-spacing: 0.5px;
+        }
+
+        .streamlit-iframe {
+            width: 100%;
+            height: 750px;
+            border: none;
+            display: block;
+            background: #0e1117;
+        }
+
         @media screen and (max-width: 1024px) {
             .brand-identity-bar {
                 top: auto;
                 bottom: 0;
                 justify-content: center;
             }
+            .streamlit-iframe {
+                height: 850px;
+            }
         }
 
         @media screen and (max-width: 840px) {
             .blueprint-media-grid {
                 grid-template-columns: 1fr;
+            }
+            .streamlit-iframe {
+                height: 900px;
             }
         }
     </style>
@@ -582,14 +640,13 @@
                 <ul>
                     <li><a href="#about-deployments">The Core Vectors</a></li>
                     <li><a href="#experience">The Timeline</a></li>
-                    <li><a href="#daily-interest-app" class="button action-daily-app">DAILY INTEREST APP</a></li>
+                    <li><a href="#daily-interest-app" class="button action-daily-app">🏛️ WMBAP</a></li>
                     <li><a href="#portfolio">The Deployments</a></li>
                     <li><a href="#credentials">The Credentials</a></li>
                     <li><a href="#media">The Evidence</a></li>
                     <li><a href="#cognitivebank-link" class="button action-vision">NEW BANKING AUTOMATION</a></li>
                     <li><a href="https://drive.google.com/file/d/1pAE24uk2umUQfAljclibqQ3ZoMHJRXe7/view?usp=drive_link"
-                            target="_blank" class="button action-pdf">Open Resume &
-                            CL</a></li>
+                            target="_blank" class="button action-pdf">Open Resume & CL</a></li>
                 </ul>
             </nav>
         </header>
@@ -745,59 +802,80 @@
         </section>
 
         <!-- ========================================== -->
-        <!-- NEW SECTION: Daily Interest & Wealth Simulator APP -->
+        <!-- LIVE INTERACTIVE EMBEDDED WMBAP APPLICATION -->
         <!-- ========================================== -->
-        <section id="daily-interest-app" class="wrapper style1 special" style="background: linear-gradient(135deg, #070b19 0%, #101c38 100%); border-top: 2px solid #00a2ff; border-bottom: 2px solid #00a2ff;">
+        <section id="daily-interest-app" class="wrapper style1 special" style="background: linear-gradient(135deg, #070b19 0%, #101c38 100%); border-top: 2px solid #00a2ff; border-bottom: 2px solid #00a2ff; padding: 4em 0;">
             <div class="container">
                 <header class="major">
-                    <span class="badge" style="background-color: #00c6ff; color: #0a0c14; font-size: 0.9em; padding: 6px 16px; margin-bottom: 15px;">🚀 FEATURED FINTECH APPLICATION</span>
-                    <h2 style="color: #ffffff; font-size: 2.4em !important; text-shadow: 0 0 20px rgba(0, 162, 255, 0.6);">Wealth Management & Banking Analytics Platform</h2>
-                    <p style="color: #00e5ff; font-family: 'Courier New', Courier, monospace; letter-spacing: 1.5px; font-weight: bold;">Daily Compounding Returns & Structured Deposit Simulator</p>
+                    <span class="badge" style="background-color: #00c6ff; color: #0a0c14; font-size: 0.9em; padding: 6px 16px; margin-bottom: 15px;">🏛️ LIVE FINTECH DEPLOYMENT</span>
+                    <h2 style="color: #ffffff; font-size: 2.4em !important; text-shadow: 0 0 20px rgba(0, 162, 255, 0.6);">Wealth Management & Banking Analytics Platform (WMBAP)</h2>
+                    <p style="color: #00e5ff; font-family: 'Courier New', Courier, monospace; letter-spacing: 1.5px; font-weight: bold;">Daily Compounding Returns, Time Deposits & Certificate Simulator</p>
                 </header>
-                
-                <div class="row align-center" style="display: flex; align-items: center; justify-content: center;">
-                    <div class="col-8 col-12-medium">
-                        <div class="cyber-banking-card" style="background: rgba(8, 14, 28, 0.95); border: 2px solid rgba(0, 162, 255, 0.4);">
-                            
-                            <!-- Clickable Image Link to the Streamlit App -->
-                            <div class="link-preview-box" style="background: transparent; border: none; padding: 0;">
-                                <a href="https://wealthpulse-simulator.streamlit.app/" target="_blank">
-                                    <img src="
 
-http://googleusercontent.com/image_generation_content/0_1553
-
-" 
-                                         alt="Daily Interest Banking Simulator App Preview" 
-                                         style="width: 100%; max-height: 380px; object-fit: cover; border-radius: 12px; border: 2px solid #00a2ff; box-shadow: 0 10px 30px rgba(0,162,255,0.4); transition: transform 0.3s ease;">
-                                </a>
-                            </div>
-
-                            <!-- Compelling Promotional Copy (English) -->
-                            <div style="margin-top: 25px; text-align: left; direction: ltr;">
-                                <h3 style="color: #ffffff; font-size: 1.3em; font-weight: 700; margin-bottom: 12px; border-left: 4px solid #00c6ff; padding-left: 12px;">
-                                    Transform Complex Financial Calculations into Instant Executive Insights
-                                </h3>
-                                <p style="color: #cfd8dc; font-size: 0.95em; line-height: 1.7; margin-bottom: 15px;">
-                                    Designed specifically for <strong>cross-functional financial operations teams, corporate bankers, and individual investors</strong>, this high-performance simulator slashes manual calculation time by <strong>95%</strong>. Say goodbye to tedious spreadsheets and human error.
-                                </p>
-                                <ul style="color: #b0bec5; font-size: 0.9em; line-height: 1.6; margin-bottom: 25px; padding-left: 20px;">
-                                    <li>⚡ <strong>For Banking Professionals:</strong> Instantly model daily compounding returns (EAR), structured time deposits, and 3-year certificates with institutional accuracy. Generate ready-to-present executive Excel reports and certified PDF certificates in one click.</li>
-                                    <li>🎯 <strong>For Individual Savers:</strong> Effortlessly evaluate savings growth trajectories, compare nominal vs. effective annual yields, and optimize portfolio returns with zero financial background required.</li>
-                                </ul>
-                            </div>
-
-                            <!-- Action Button -->
-                            <ul class="actions special" style="margin-top: 10px;">
-                                <li>
-                                    <a href="https://wealthpulse-simulator.streamlit.app/" target="_blank" class="button action-daily-app" style="padding: 0 40px; font-size: 1.1em; height: 3.2em; line-height: 3.2em;">
-                                        <span class="icon solid fa-chart-line" style="margin-right: 8px;"></span> Launch Daily Interest Simulator APP
-                                    </a>
-                                </li>
+                <!-- Professional Technical & Promotional Overview (English) -->
+                <div class="cyber-banking-card" style="background: rgba(8, 14, 28, 0.95); border: 2px solid rgba(0, 162, 255, 0.4); text-align: left; margin-bottom: 25px;">
+                    <h3 style="color: #ffffff; font-size: 1.35em; font-weight: 700; margin-bottom: 12px; border-left: 4px solid #00c6ff; padding-left: 12px;">
+                        Transform Complex Banking Yield Calculations into Instant Executive Intelligence
+                    </h3>
+                    <p style="color: #cfd8dc; font-size: 0.98em; line-height: 1.7; margin-bottom: 15px;">
+                        Engineered specifically for <strong>cross-functional financial operations teams, corporate banking professionals, and retail investors</strong>, this enterprise-grade platform replaces tedious manual spreadsheets, eliminating human error and accelerating yield modeling by <strong>95%</strong>.
+                    </p>
+                    <div class="row">
+                        <div class="col-6 col-12-medium">
+                            <ul style="color: #b0bec5; font-size: 0.9em; line-height: 1.6; margin-bottom: 10px; padding-left: 20px;">
+                                <li>⚡ <strong>Daily Compounding Engine:</strong> Real-time calculations of Effective Annual Rates (EAR) versus nominal yield curves.</li>
+                                <li>🏦 <strong>Structured Deposit Management:</strong> Dynamic period modeling for Time Of Deposit and 3-Year Investment Certificates.</li>
                             </ul>
-
+                        </div>
+                        <div class="col-6 col-12-medium">
+                            <ul style="color: #b0bec5; font-size: 0.9em; line-height: 1.6; margin-bottom: 10px; padding-left: 20px;">
+                                <li>📊 <strong>Automated Reporting:</strong> Export official executive Excel workbooks and certified PDF statements in one click.</li>
+                                <li>🌐 <strong>Bilingual Architecture:</strong> Instant dynamic switching between English and Arabic UI modes.</li>
+                            </ul>
                         </div>
                     </div>
                 </div>
+
+                <!-- DIRECT SECURE EMBEDDED STREAMLIT APP FRAMEWORK -->
+                <div class="embedded-app-wrapper">
+                    <div class="embedded-app-header">
+                        <div class="embedded-app-title">
+                            <span class="icon solid fa-shield-alt" style="color: #00e5ff;"></span>
+                            <span>🏛️ WMBAP SECURITY ENGINE INTERFACE</span>
+                        </div>
+                        <div class="security-lock-badge">
+                            <span class="icon solid fa-lock" style="margin-right: 5px;"></span> SECURE SANDBOX ACTIVE
+                        </div>
+                    </div>
+
+                    <!-- Secure iFrame with explicit Sandbox, Security Headers, and Referral Policies -->
+                    <iframe 
+                        src="https://wealthpulse-simulator.streamlit.app/?embed=true" 
+                        class="streamlit-iframe" 
+                        title="WMBAP - Smart Banking Return Simulator" 
+                        loading="lazy"
+                        referrerpolicy="strict-origin-when-cross-origin"
+                        sandbox="allow-scripts allow-same-origin allow-forms allow-downloads allow-popups">
+                    </iframe>
+                </div>
+
+                <!-- END OF SECTION DIRECT LINKS & FALLBACK ACCESS -->
+                <div style="margin-top: 30px; text-align: center; border-top: 1px dashed rgba(0, 162, 255, 0.3); padding-top: 25px;">
+                    <p style="color: #cfd8dc; font-size: 0.95em; margin-bottom: 15px;">
+                        Prefer operating the simulator in a dedicated full-screen browser tab? Access the standalone application portal below:
+                    </p>
+                    <ul class="actions special" style="justify-content: center; margin-bottom: 15px;">
+                        <li>
+                            <a href="https://wealthpulse-simulator.streamlit.app/" target="_blank" class="button action-daily-app" style="padding: 0 40px; font-size: 1.1em; height: 3.2em; line-height: 3.2em;">
+                                <span class="icon solid fa-external-link-alt" style="margin-right: 8px;"></span> Open Standalone WMBAP Application Portal
+                            </a>
+                        </li>
+                    </ul>
+                    <p style="font-family: 'Courier New', Courier, monospace; font-size: 0.85em; color: #00a2ff;">
+                        Direct URL: <a href="https://wealthpulse-simulator.streamlit.app/" target="_blank" style="color: #00e5ff; text-decoration: underline;">https://wealthpulse-simulator.streamlit.app/</a>
+                    </p>
+                </div>
+
             </div>
         </section>
         <!-- ========================================== -->
@@ -1252,7 +1330,7 @@ http://googleusercontent.com/image_generation_content/0_1553
                 }
             });
 
-            // تأمين ظهور الصفحة
+            // Ensure proper site loading visibility
             $(window).on('load', function () {
                 $('body').removeClass('is-preload').css('visibility', 'visible');
             });
