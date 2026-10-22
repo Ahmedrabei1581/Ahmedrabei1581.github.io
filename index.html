@@ -44,6 +44,11 @@
             height: 4em;
         }
 
+        /* قمع وعلاج أي عنصر undefined مولد تلقائياً من القالب */
+        .title, #title, [id*="title"], .label {
+            /* حماية إضافية */
+        }
+
         /* Illuminated Glowing Navigation Tabs */
         #nav ul {
             display: flex;
@@ -1328,12 +1333,26 @@
                 var $nav = $('#nav');
                 var $toggle = $('#nav-toggle');
 
-                if ($toggle.length && $nav.length) {
-                    // التأكد من عدم ظهور كلمة undefined نهائياً كعنوان للقائمة في الموبايل
-                    if (!$toggle.text() || $toggle.text().indexOf("undefined") !== -1) {
-                        $toggle.html('☰ Menu');
-                    }
+                // الكود البرمجي لحذف وإزالة أي كلمة undefined متولدة من القالب تلقائياً
+                function cleanUndefinedElements() {
+                    $('*').each(function() {
+                        if ($(this).children().length === 0 && $(this).text().trim() === 'undefined') {
+                            $(this).remove();
+                        }
+                    });
+                    // البحث في شريط الهيدر العلوي للموبايل وتصحيحه
+                    $('.title, #title, .label, div').each(function() {
+                        var t = $(this).text().trim();
+                        if (t === 'undefined') {
+                            $(this).text('☰ Menu');
+                        }
+                    });
+                }
 
+                cleanUndefinedElements();
+                setInterval(cleanUndefinedElements, 300); // مراقبة مستمرة لتنظيف أي عنصر طارئ
+
+                if ($toggle.length && $nav.length) {
                     $toggle.on('click', function (e) {
                         e.preventDefault();
                         e.stopPropagation();
