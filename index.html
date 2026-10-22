@@ -40,13 +40,26 @@
             display: flex;
             align-items: center;
             justify-content: space-between;
-            padding: 0 2em;
+            padding: 0 1.5em;
             height: 4em;
         }
 
-        /* قمع وعلاج أي عنصر undefined مولد تلقائياً من القالب */
-        .title, #title, [id*="title"], .label {
-            /* حماية إضافية */
+        /* Mobile Header Brand Title (ملء الفراغ بجوار زر القائمة) */
+        .mobile-header-title {
+            display: none;
+            font-family: "Courier New", Courier, monospace;
+            font-weight: bold;
+            font-size: 0.95em;
+            color: #00e5ff;
+            letter-spacing: 1px;
+            text-shadow: 0 0 10px rgba(0, 229, 255, 0.5);
+            text-transform: uppercase;
+        }
+
+        @media screen and (max-width: 1024px) {
+            .mobile-header-title {
+                display: inline-block !important;
+            }
         }
 
         /* Illuminated Glowing Navigation Tabs */
@@ -133,21 +146,19 @@
 
         /* Mobile Menu Toggle */
         .nav-toggle {
-            display: none;
             cursor: pointer;
             color: #fff;
-            font-size: 1.4em;
-            background: rgba(0, 162, 255, 0.2);
-            padding: 4px 12px;
+            font-size: 1.3em;
+            background: rgba(0, 162, 255, 0.25);
+            padding: 6px 14px;
             border-radius: 6px;
-            border: 1px solid rgba(0, 162, 255, 0.4);
+            border: 1px solid rgba(0, 162, 255, 0.5);
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
         }
 
         @media screen and (max-width: 1024px) {
-            .nav-toggle {
-                display: block !important;
-            }
-
             #nav {
                 display: none;
                 position: absolute;
@@ -659,6 +670,7 @@
 
         <header id="header">
             <div class="nav-toggle" id="nav-toggle">☰ Menu</div>
+            <div class="mobile-header-title">🏛️ Ahmed Rabei</div>
             <nav id="nav">
                 <ul>
                     <li><a href="#about-deployments" class="nav-tab-btn">🎯 The Core Vectors</a></li>
@@ -1332,25 +1344,6 @@
             $(document).ready(function () {
                 var $nav = $('#nav');
                 var $toggle = $('#nav-toggle');
-
-                // الكود البرمجي لحذف وإزالة أي كلمة undefined متولدة من القالب تلقائياً
-                function cleanUndefinedElements() {
-                    $('*').each(function() {
-                        if ($(this).children().length === 0 && $(this).text().trim() === 'undefined') {
-                            $(this).remove();
-                        }
-                    });
-                    // البحث في شريط الهيدر العلوي للموبايل وتصحيحه
-                    $('.title, #title, .label, div').each(function() {
-                        var t = $(this).text().trim();
-                        if (t === 'undefined') {
-                            $(this).text('☰ Menu');
-                        }
-                    });
-                }
-
-                cleanUndefinedElements();
-                setInterval(cleanUndefinedElements, 300); // مراقبة مستمرة لتنظيف أي عنصر طارئ
 
                 if ($toggle.length && $nav.length) {
                     $toggle.on('click', function (e) {
