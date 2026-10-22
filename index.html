@@ -131,12 +131,16 @@
             display: none;
             cursor: pointer;
             color: #fff;
-            font-size: 1.5em;
+            font-size: 1.4em;
+            background: rgba(0, 162, 255, 0.2);
+            padding: 4px 12px;
+            border-radius: 6px;
+            border: 1px solid rgba(0, 162, 255, 0.4);
         }
 
         @media screen and (max-width: 1024px) {
             .nav-toggle {
-                display: block;
+                display: block !important;
             }
 
             #nav {
@@ -147,9 +151,10 @@
                 width: 100%;
                 background: rgba(10, 12, 20, 0.98);
                 flex-direction: column;
-                padding: 1.5em 0;
+                padding: 1.5em 1em;
                 border-bottom: 2px solid #00a2ff;
                 box-shadow: 0 15px 30px rgba(0,0,0,0.8);
+                text-align: center;
             }
 
             #nav.active {
@@ -161,6 +166,13 @@
             #nav ul {
                 flex-direction: column;
                 gap: 12px;
+                width: 100%;
+            }
+
+            #nav ul li a {
+                display: block !important;
+                width: 100% !important;
+                text-align: center !important;
             }
         }
 
@@ -641,7 +653,7 @@
     <div id="page-wrapper">
 
         <header id="header">
-            <div class="nav-toggle" id="nav-toggle">☰</div>
+            <div class="nav-toggle" id="nav-toggle">☰ Menu</div>
             <nav id="nav">
                 <ul>
                     <li><a href="#about-deployments" class="nav-tab-btn">🎯 The Core Vectors</a></li>
@@ -1317,6 +1329,11 @@
                 var $toggle = $('#nav-toggle');
 
                 if ($toggle.length && $nav.length) {
+                    // التأكد من عدم ظهور كلمة undefined نهائياً كعنوان للقائمة في الموبايل
+                    if (!$toggle.text() || $toggle.text().indexOf("undefined") !== -1) {
+                        $toggle.html('☰ Menu');
+                    }
+
                     $toggle.on('click', function (e) {
                         e.preventDefault();
                         e.stopPropagation();
