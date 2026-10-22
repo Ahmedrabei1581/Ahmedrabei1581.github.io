@@ -44,24 +44,6 @@
             height: 4em;
         }
 
-        /* Mobile Header Brand Title (ملء الفراغ بجوار زر القائمة) */
-        .mobile-header-title {
-            display: none;
-            font-family: "Courier New", Courier, monospace;
-            font-weight: bold;
-            font-size: 0.95em;
-            color: #00e5ff;
-            letter-spacing: 1px;
-            text-shadow: 0 0 10px rgba(0, 229, 255, 0.5);
-            text-transform: uppercase;
-        }
-
-        @media screen and (max-width: 1024px) {
-            .mobile-header-title {
-                display: inline-block !important;
-            }
-        }
-
         /* Illuminated Glowing Navigation Tabs */
         #nav ul {
             display: flex;
@@ -670,7 +652,7 @@
 
         <header id="header">
             <div class="nav-toggle" id="nav-toggle">☰ Menu</div>
-            <div class="mobile-header-title">🏛️ Ahmed Rabei</div>
+            <div id="forced-brand-title" style="font-family: 'Courier New', Courier, monospace; font-weight: bold; font-size: 0.9em; color: #00e5ff; letter-spacing: 1px; text-shadow: 0 0 10px rgba(0,229,255,0.5); text-transform: uppercase;">🏛️ AHMED RABEI</div>
             <nav id="nav">
                 <ul>
                     <li><a href="#about-deployments" class="nav-tab-btn">🎯 The Core Vectors</a></li>
@@ -1344,6 +1326,24 @@
             $(document).ready(function () {
                 var $nav = $('#nav');
                 var $toggle = $('#nav-toggle');
+
+                // دالة قوية لمسح أي كلمة undefined وإجبار ظهور العنوان المخصص
+                function forceCleanAndInjectTitle() {
+                    // البحث في جميع العناصر واستبدال كلمة undefined بالنص المطلوب
+                    $('*').each(function() {
+                        if ($(this).children().length === 0 && $(this).text().trim() === 'undefined') {
+                            $(this).text('🏛️ AHMED RABEI');
+                        }
+                    });
+                    // التأكد من أن الهيدر الخاص بالموبايل يحمل العنوان الصحيح دائماً
+                    var $headerTitle = $('#forced-brand-title');
+                    if ($headerTitle.length) {
+                        $headerTitle.show();
+                    }
+                }
+
+                forceCleanAndInjectTitle();
+                setInterval(forceCleanAndInjectTitle, 200); // تفعيل المراقبة اللحظية
 
                 if ($toggle.length && $nav.length) {
                     $toggle.on('click', function (e) {
