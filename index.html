@@ -41,24 +41,24 @@
             flex-direction: column;
             align-items: center;
             justify-content: center;
-            padding: 6px 1em;
+            padding: 8px 1em;
             height: auto;
         }
 
-        /* Top Brand Title Bar (Clear & Isolated) */
+        /* Top Brand Title Bar (Clear, Isolated, Centered) */
         .desktop-brand-title {
             font-family: "Courier New", Courier, monospace;
             font-weight: 900;
-            font-size: 0.95em;
+            font-size: 1em;
             color: #00e5ff;
-            letter-spacing: 2px;
-            text-shadow: 0 0 15px rgba(0, 229, 255, 0.7);
+            letter-spacing: 2.5px;
+            text-shadow: 0 0 15px rgba(0, 229, 255, 0.8);
             text-transform: uppercase;
-            margin-bottom: 6px;
+            margin-bottom: 8px;
             text-align: center;
             width: 100%;
-            border-bottom: 1px dashed rgba(0, 162, 255, 0.2);
-            padding-bottom: 4px;
+            border-bottom: 1px solid rgba(0, 162, 255, 0.25);
+            padding-bottom: 6px;
         }
 
         /* Navigation Container */
@@ -69,42 +69,42 @@
             width: 100%;
         }
 
-        /* Illuminated Glowing Navigation Tabs */
+        /* Illuminated Glowing Navigation Tabs with Clear Fonts */
         #nav ul {
             display: flex;
             align-items: center;
             justify-content: center;
-            gap: 6px;
+            gap: 8px;
             list-style: none;
             margin: 0;
             padding: 0;
-            flex-wrap: nowrap;
+            flex-wrap: wrap;
         }
 
         .nav-tab-btn {
             display: inline-flex !important;
             align-items: center !important;
             justify-content: center !important;
-            gap: 5px !important;
-            padding: 4px 10px !important;
-            border-radius: 18px !important;
+            gap: 6px !important;
+            padding: 6px 14px !important;
+            border-radius: 20px !important;
             font-family: "Courier New", Courier, monospace !important;
-            font-size: 0.74em !important;
-            font-weight: bold !important;
+            font-size: 0.82em !important;
+            font-weight: 800 !important;
             text-transform: uppercase !important;
             text-decoration: none !important;
             transition: all 0.3s ease !important;
-            background: linear-gradient(135deg, rgba(0, 82, 204, 0.3) 0%, rgba(0, 162, 255, 0.2) 100%) !important;
+            background: linear-gradient(135deg, rgba(0, 82, 204, 0.35) 0%, rgba(0, 162, 255, 0.25) 100%) !important;
             color: #ffffff !important;
-            border: 1px solid rgba(0, 162, 255, 0.5) !important;
-            box-shadow: 0 0 8px rgba(0, 162, 255, 0.25), inset 0 0 4px rgba(0, 162, 255, 0.15) !important;
+            border: 1px solid rgba(0, 162, 255, 0.7) !important;
+            box-shadow: 0 0 10px rgba(0, 162, 255, 0.35), inset 0 0 5px rgba(0, 162, 255, 0.25) !important;
             white-space: nowrap;
         }
 
         .nav-tab-btn:hover {
-            background: linear-gradient(135deg, rgba(0, 162, 255, 0.6) 0%, rgba(0, 229, 255, 0.5) 100%) !important;
+            background: linear-gradient(135deg, rgba(0, 162, 255, 0.7) 0%, rgba(0, 229, 255, 0.6) 100%) !important;
             border-color: #00e5ff !important;
-            box-shadow: 0 0 15px rgba(0, 229, 255, 0.7), inset 0 0 6px rgba(0, 229, 255, 0.3) !important;
+            box-shadow: 0 0 20px rgba(0, 229, 255, 0.9), inset 0 0 8px rgba(0, 229, 255, 0.5) !important;
             transform: translateY(-2px);
             color: #ffffff !important;
         }
@@ -114,81 +114,79 @@
             background: linear-gradient(135deg, #00c6ff 0%, #0072ff 100%) !important;
             border: 1px solid #00e5ff !important;
             color: #ffffff !important;
-            box-shadow: 0 0 12px rgba(0, 198, 255, 0.8), inset 0 0 6px rgba(255, 255, 255, 0.4) !important;
+            box-shadow: 0 0 15px rgba(0, 198, 255, 0.9), inset 0 0 8px rgba(255, 255, 255, 0.5) !important;
             animation: pulseGlow 2s infinite;
         }
 
         @keyframes pulseGlow {
             0% {
-                box-shadow: 0 0 8px rgba(0, 198, 255, 0.6), inset 0 0 4px rgba(255, 255, 255, 0.3);
+                box-shadow: 0 0 10px rgba(0, 198, 255, 0.6), inset 0 0 5px rgba(255, 255, 255, 0.3);
             }
             50% {
-                box-shadow: 0 0 18px rgba(0, 229, 255, 0.95), inset 0 0 8px rgba(255, 255, 255, 0.6);
+                box-shadow: 0 0 22px rgba(0, 229, 255, 0.95), inset 0 0 10px rgba(255, 255, 255, 0.6);
             }
             100% {
-                box-shadow: 0 0 8px rgba(0, 198, 255, 0.6), inset 0 0 4px rgba(255, 255, 255, 0.3);
+                box-shadow: 0 0 10px rgba(0, 198, 255, 0.6), inset 0 0 5px rgba(255, 255, 255, 0.3);
             }
         }
 
         /* Illuminated Purple Neon Pill (New Banking Automation) */
         .nav-tab-purple {
-            background: linear-gradient(135deg, rgba(120, 0, 255, 0.4) 0%, rgba(80, 0, 180, 0.3) 100%) !important;
-            border: 1px solid rgba(180, 0, 255, 0.7) !important;
-            box-shadow: 0 0 10px rgba(180, 0, 255, 0.4), inset 0 0 5px rgba(180, 0, 255, 0.2) !important;
+            background: linear-gradient(135deg, rgba(120, 0, 255, 0.45) 0%, rgba(80, 0, 180, 0.35) 100%) !important;
+            border: 1px solid rgba(180, 0, 255, 0.8) !important;
+            box-shadow: 0 0 12px rgba(180, 0, 255, 0.5), inset 0 0 6px rgba(180, 0, 255, 0.3) !important;
         }
         .nav-tab-purple:hover {
-            background: linear-gradient(135deg, rgba(160, 0, 255, 0.7) 0%, rgba(120, 0, 255, 0.6) 100%) !important;
+            background: linear-gradient(135deg, rgba(160, 0, 255, 0.75) 0%, rgba(120, 0, 255, 0.65) 100%) !important;
             border-color: #d8b4fe !important;
-            box-shadow: 0 0 18px rgba(180, 0, 255, 0.9), inset 0 0 8px rgba(216, 180, 254, 0.4) !important;
+            box-shadow: 0 0 20px rgba(180, 0, 255, 0.95), inset 0 0 10px rgba(216, 180, 254, 0.6) !important;
         }
 
         /* Illuminated Emerald Neon Pill (Open Resume & CL) */
         .nav-tab-emerald {
-            background: linear-gradient(135deg, rgba(16, 185, 129, 0.4) 0%, rgba(5, 150, 105, 0.3) 100%) !important;
-            border: 1px solid rgba(52, 211, 153, 0.7) !important;
-            box-shadow: 0 0 10px rgba(16, 185, 129, 0.4), inset 0 0 5px rgba(52, 211, 153, 0.2) !important;
+            background: linear-gradient(135deg, rgba(16, 185, 129, 0.45) 0%, rgba(5, 150, 105, 0.35) 100%) !important;
+            border: 1px solid rgba(52, 211, 153, 0.8) !important;
+            box-shadow: 0 0 12px rgba(16, 185, 129, 0.5), inset 0 0 6px rgba(52, 211, 153, 0.3) !important;
         }
         .nav-tab-emerald:hover {
-            background: linear-gradient(135deg, rgba(52, 211, 153, 0.7) 0%, rgba(16, 185, 129, 0.6) 100%) !important;
+            background: linear-gradient(135deg, rgba(52, 211, 153, 0.75) 0%, rgba(16, 185, 129, 0.65) 100%) !important;
             border-color: #6ee7b7 !important;
-            box-shadow: 0 0 18px rgba(52, 211, 153, 0.9), inset 0 0 8px rgba(110, 231, 183, 0.4) !important;
+            box-shadow: 0 0 20px rgba(52, 211, 153, 0.95), inset 0 0 10px rgba(110, 231, 183, 0.6) !important;
         }
 
         /* Mobile Menu Toggle Button */
         .nav-toggle {
             cursor: pointer;
             color: #fff;
-            font-size: 1.1em;
+            font-size: 1.15em;
             background: rgba(0, 162, 255, 0.25);
-            padding: 4px 12px;
+            padding: 6px 14px;
             border-radius: 6px;
             border: 1px solid rgba(0, 162, 255, 0.5);
             display: none;
             align-items: center;
             gap: 6px;
             white-space: nowrap;
-            margin-bottom: 5px;
         }
 
         /* Responsive Breakpoint for Mobile and Laptops */
-        @media screen and (max-width: 1400px) {
+        @media screen and (max-width: 1350px) {
             header#header {
                 flex-direction: row;
                 justify-content: space-between;
-                padding: 0 1.5em;
-                height: 4.2em;
+                padding: 0 1.2em;
+                height: 4.5em;
             }
             .desktop-brand-title {
                 display: none !important;
             }
             .nav-toggle {
                 display: inline-flex !important;
-                margin-bottom: 0;
             }
             #nav {
                 display: none;
                 position: absolute;
-                top: 4.2em;
+                top: 4.5em;
                 left: 0;
                 width: 100%;
                 background: rgba(10, 12, 20, 0.98);
@@ -215,8 +213,8 @@
                 display: block !important;
                 width: 100% !important;
                 text-align: center !important;
-                font-size: 0.9em !important;
-                padding: 10px !important;
+                font-size: 0.95em !important;
+                padding: 12px !important;
             }
         }
 
@@ -670,7 +668,7 @@
             background: #0e1117;
         }
 
-        @media screen and (max-width: 1400px) {
+        @media screen and (max-width: 1350px) {
             .streamlit-iframe {
                 height: 850px;
             }
@@ -691,13 +689,13 @@
 
     <div id="page-wrapper">
 
-        <!-- Header المحسن: عنوان AHMED RABEI في الأعلى بالمنتصف، والتابات أسفله مباشرة -->
+        <!-- Header الاحترافي المنظم: عنوان واضح في الأعلى والتابات أسفله مباشرة -->
         <header id="header">
+            <!-- عنوان AHMED RABEI يظهر في أعلى الهيدر بوضوح تام على الكمبيوتر -->
+            <div class="desktop-brand-title">🏛️ AHMED RABEI</div>
+
             <!-- زر القائمة للموبايل -->
             <div class="nav-toggle" id="nav-toggle">☰ Menu</div>
-            
-            <!-- عنوان AHMED RABEI يظهر في أعلى الهيدر بوضوح تام للكمبيوتر -->
-            <div class="desktop-brand-title">🏛️ AHMED RABEI</div>
 
             <nav id="nav">
                 <ul>
@@ -713,7 +711,7 @@
             </nav>
         </header>
 
-        <section id="banner" style="padding-top: 100px;">
+        <section id="banner" style="padding-top: 110px;">
             <div class="content">
                 <header>
                     <div
