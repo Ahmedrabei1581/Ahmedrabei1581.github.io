@@ -28,7 +28,7 @@
 
         /* Header and Nav Professional Redesign */
         header#header {
-            background: rgba(10, 12, 20, 0.96) !important;
+            background: rgba(10, 12, 20, 0.98) !important;
             backdrop-filter: blur(14px);
             box-shadow: 0 4px 30px rgba(0, 0, 0, 0.8) !important;
             position: fixed !important;
@@ -38,35 +38,47 @@
             z-index: 10000;
             border-bottom: 1px solid rgba(0, 162, 255, 0.3) !important;
             display: flex;
+            flex-direction: column;
             align-items: center;
-            justify-content: space-between;
-            padding: 0 2em;
-            height: 4.5em;
+            justify-content: center;
+            padding: 6px 1em;
+            height: auto;
         }
 
-        /* Centered Brand Title for Desktop */
+        /* Top Brand Title Bar (Clear & Isolated) */
         .desktop-brand-title {
             font-family: "Courier New", Courier, monospace;
             font-weight: 900;
-            font-size: 1.05em;
+            font-size: 0.95em;
             color: #00e5ff;
             letter-spacing: 2px;
             text-shadow: 0 0 15px rgba(0, 229, 255, 0.7);
             text-transform: uppercase;
-            position: absolute;
-            left: 50%;
-            transform: translateX(-50%);
-            white-space: nowrap;
+            margin-bottom: 6px;
+            text-align: center;
+            width: 100%;
+            border-bottom: 1px dashed rgba(0, 162, 255, 0.2);
+            padding-bottom: 4px;
+        }
+
+        /* Navigation Container */
+        #nav {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 100%;
         }
 
         /* Illuminated Glowing Navigation Tabs */
         #nav ul {
             display: flex;
             align-items: center;
+            justify-content: center;
             gap: 6px;
             list-style: none;
             margin: 0;
             padding: 0;
+            flex-wrap: nowrap;
         }
 
         .nav-tab-btn {
@@ -74,10 +86,10 @@
             align-items: center !important;
             justify-content: center !important;
             gap: 5px !important;
-            padding: 5px 10px !important;
+            padding: 4px 10px !important;
             border-radius: 18px !important;
             font-family: "Courier New", Courier, monospace !important;
-            font-size: 0.75em !important;
+            font-size: 0.74em !important;
             font-weight: bold !important;
             text-transform: uppercase !important;
             text-decoration: none !important;
@@ -146,32 +158,37 @@
         .nav-toggle {
             cursor: pointer;
             color: #fff;
-            font-size: 1.15em;
+            font-size: 1.1em;
             background: rgba(0, 162, 255, 0.25);
-            padding: 5px 12px;
+            padding: 4px 12px;
             border-radius: 6px;
             border: 1px solid rgba(0, 162, 255, 0.5);
             display: none;
             align-items: center;
             gap: 6px;
             white-space: nowrap;
+            margin-bottom: 5px;
         }
 
         /* Responsive Breakpoint for Mobile and Laptops */
-        @media screen and (max-width: 1350px) {
+        @media screen and (max-width: 1400px) {
+            header#header {
+                flex-direction: row;
+                justify-content: space-between;
+                padding: 0 1.5em;
+                height: 4.2em;
+            }
             .desktop-brand-title {
                 display: none !important;
             }
             .nav-toggle {
                 display: inline-flex !important;
-            }
-            header#header {
-                padding: 0 1.2em;
+                margin-bottom: 0;
             }
             #nav {
                 display: none;
                 position: absolute;
-                top: 4.5em;
+                top: 4.2em;
                 left: 0;
                 width: 100%;
                 background: rgba(10, 12, 20, 0.98);
@@ -653,7 +670,7 @@
             background: #0e1117;
         }
 
-        @media screen and (max-width: 1350px) {
+        @media screen and (max-width: 1400px) {
             .streamlit-iframe {
                 height: 850px;
             }
@@ -674,12 +691,12 @@
 
     <div id="page-wrapper">
 
-        <!-- Header الاحترافي: عنوان AHMED RABEI في المنتصف للكمبيوتر، وزر القائمة للموبايل -->
+        <!-- Header المحسن: عنوان AHMED RABEI في الأعلى بالمنتصف، والتابات أسفله مباشرة -->
         <header id="header">
-            <!-- زر القائمة يظهر فقط على الشاشات الصغيرة (الموبايل) -->
+            <!-- زر القائمة للموبايل -->
             <div class="nav-toggle" id="nav-toggle">☰ Menu</div>
             
-            <!-- عنوان AHMED RABEI متمركز تماماً في المنتصف بشكل جمالي للكمبيوتر -->
+            <!-- عنوان AHMED RABEI يظهر في أعلى الهيدر بوضوح تام للكمبيوتر -->
             <div class="desktop-brand-title">🏛️ AHMED RABEI</div>
 
             <nav id="nav">
@@ -696,7 +713,7 @@
             </nav>
         </header>
 
-        <section id="banner" style="padding-top: 80px;">
+        <section id="banner" style="padding-top: 100px;">
             <div class="content">
                 <header>
                     <div
