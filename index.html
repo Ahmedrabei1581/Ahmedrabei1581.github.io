@@ -652,7 +652,7 @@
 
         <header id="header">
             <div class="nav-toggle" id="nav-toggle">☰ Menu</div>
-            <div id="forced-brand-title" style="font-family: 'Courier New', Courier, monospace; font-weight: bold; font-size: 0.85em; color: #00e5ff; letter-spacing: 0.5px; text-shadow: 0 0 10px rgba(0,229,255,0.5); text-transform: uppercase;">⚡ AI BANKING DECISIONS</div>
+            <div id="forced-brand-title" style="font-family: 'Courier New', Courier, monospace; font-weight: bold; font-size: 0.9em; color: #00e5ff; letter-spacing: 1px; text-shadow: 0 0 10px rgba(0,229,255,0.5); text-transform: uppercase;">🏛️ AHMED RABEI</div>
             <nav id="nav">
                 <ul>
                     <li><a href="#about-deployments" class="nav-tab-btn">🎯 The Core Vectors</a></li>
@@ -1327,12 +1327,15 @@
                 var $nav = $('#nav');
                 var $toggle = $('#nav-toggle');
 
+                // دالة قوية لمسح أي كلمة undefined وإجبار ظهور العنوان المخصص
                 function forceCleanAndInjectTitle() {
+                    // البحث في جميع العناصر واستبدال كلمة undefined بالنص المطلوب
                     $('*').each(function() {
                         if ($(this).children().length === 0 && $(this).text().trim() === 'undefined') {
-                            $(this).text('⚡ AI BANKING DECISIONS');
+                            $(this).text('🏛️ AHMED RABEI');
                         }
                     });
+                    // التأكد من أن الهيدر الخاص بالموبايل يحمل العنوان الصحيح دائماً
                     var $headerTitle = $('#forced-brand-title');
                     if ($headerTitle.length) {
                         $headerTitle.show();
@@ -1340,7 +1343,7 @@
                 }
 
                 forceCleanAndInjectTitle();
-                setInterval(forceCleanAndInjectTitle, 200);
+                setInterval(forceCleanAndInjectTitle, 200); // تفعيل المراقبة اللحظية
 
                 if ($toggle.length && $nav.length) {
                     $toggle.on('click', function (e) {
@@ -1361,6 +1364,7 @@
                 }
             });
 
+            // Ensure proper site loading visibility
             $(window).on('load', function () {
                 $('body').removeClass('is-preload').css('visibility', 'visible');
             });
